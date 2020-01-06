@@ -34,6 +34,11 @@ abstract class Vehicle{
 
 class Truck extends Vehicle implements Drivable{
 	
+	Truck(String VIN){
+		this.VIN = VIN;
+		VehicleHelper.register(this);
+	}
+	
 	public void drive(){
 		System.out.println("Driving Truck");
 	}
@@ -51,6 +56,7 @@ class Car extends Vehicle implements Drivable, VehicleHelper{
 	
 	Car(String VIN){
 		this.VIN = VIN;
+		//ensuring method is invoked on every created instance of car
 		VehicleHelper.register(this);
 	}
 	
