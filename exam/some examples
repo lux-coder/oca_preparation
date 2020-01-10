@@ -1,0 +1,271 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ListIterator;
+ 
+public class Test {
+     public static void main(String[] args) {
+         List<String> dryFruits = new ArrayList<>();
+         dryFruits.add("Walnut");
+         dryFruits.add("Apricot");
+         dryFruits.add("Almond");
+         dryFruits.add("Date");
+ 
+         ListIterator<String> iterator = dryFruits.listIterator();
+         while(iterator.hasNext()) {
+             if(iterator.next().startsWith("A")) {
+                 iterator.remove();
+              }
+         }
+ 
+         System.out.println(dryFruits);
+     }
+}
+
+
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+ 
+public class Test {
+     public static void main(String[] args) {
+         List<String> dryFruits = new ArrayList<>();
+         dryFruits.add("Walnut");
+         dryFruits.add("Apricot");
+         dryFruits.add("Almond");
+         dryFruits.add("Date");
+ 
+         Iterator<String> iterator = dryFruits.iterator();
+         while(iterator.hasNext()) {
+             String dryFruit = iterator.next();
+             if(dryFruit.startsWith("A")) {
+                 dryFruits.remove(dryFruit);
+             }
+         }
+        
+         System.out.println(dryFruits);
+    }
+}
+
+
+
+
+
+
+
+							import java.util.ArrayList;
+							import java.util.List;
+							 
+							class Student {
+								 private String name;
+								 private int age;
+							 
+								 Student(String name, int age) {
+									 this.name = name;
+									 this.age = age;
+								 }
+							 
+								 public String toString() {
+									 return "Student[" + name + ", " + age + "]";
+								 }
+							 
+								 public boolean equals(Object obj) {
+									 if(obj instanceof Student) {
+										 Student stud = (Student)obj;
+										 if(this.name.equals(stud.name) && this.age == stud.age) {
+											 return true;
+										 }
+									 }
+									 return false;
+								 }
+							}
+							 
+							public class Test {
+								 public static void main(String[] args) {
+									 List<Student> students = new ArrayList<>();
+									 students.add(new Student("James", 25));
+									 students.add(new Student("James", 27));
+									 students.add(new Student("James", 25));
+									 students.add(new Student("James", 25));
+							 
+									 students.remove(new Student("James", 25));
+							 
+									 for(Student stud : students) {
+										 System.out.println(stud);
+									 }
+								}
+							}
+
+
+							import java.util.ArrayList;
+							import java.util.List;
+							 
+							class Student {
+								 private String name;
+								 private int age;
+							 
+								 Student(String name, int age) {
+									 this.name = name;
+									 this.age = age;
+								 }
+							 
+								 public String toString() {
+									 return "Student[" + name + ", " + age + "]";
+								 }
+							}
+							 
+							public class Test {
+								 public static void main(String[] args) {
+									 List<Student> students = new ArrayList<>();
+									 students.add(new Student("James", 25));
+									 students.add(new Student("James", 27));
+									 students.add(new Student("James", 25));
+									 students.add(new Student("James", 25));
+							 
+									 students.remove(new Student("James", 25));
+							 
+									 for(Student stud : students) {
+										 System.out.println(stud);
+									 }
+								 }
+							}
+
+
+
+
+
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
+ 
+public class Test {
+     public static void main(String [] args) {
+         LocalDate date = LocalDate.of(2012, 1, 11);
+         Period period = Period.ofMonths(2);
+         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("mm-dd-yy");
+         System.out.print(formatter.format(date.minus(period)));
+     }
+}
+
+
+
+class Message {
+     String msg = "Happy New Year!";
+ 
+     public void print() {
+         System.out.println(msg);
+     }
+}
+ 
+public class Test {
+     public static void change(Message m) {
+         m = new Message();
+         m.msg = "Happy Holidays!";
+     }
+ 
+     public static void main(String[] args) {
+         Message obj = new Message();
+         obj.print();
+         change(obj);
+         obj.print();
+     }
+}
+
+
+
+class Message {
+     String msg = "Happy New Year!";
+ 
+     public void print() {
+         System.out.println(msg);
+     }
+}
+ 
+public class Test {
+     public static void change(Message m) {
+         m.msg = "Happy Holidays!";
+     }
+ 
+     public static void main(String[] args) {
+         Message obj = new Message();
+         obj.print();
+         change(obj);
+         obj.print();
+     }
+}
+
+
+
+
+
+
+				import java.util.ArrayList;
+				 
+				public class Test {
+					 public static void main(String[] args) {
+						 ArrayList<Integer> original = new ArrayList<>();
+						 original.add(new Integer(10));
+				 
+						 ArrayList<Integer> cloned = (ArrayList<Integer>) original.clone();
+						 Integer i1 = cloned.get(0);
+						 ++i1;
+				 
+						 System.out.println(cloned);
+					 }
+				}
+
+
+				import java.util.ArrayList;
+				 
+				class Counter {
+					 int count;
+					 Counter(int count) {
+						 this.count = count;
+					 }
+				 
+					 public String toString() {
+						 return "Counter-" + count;
+					 }
+				}
+				 
+				public class Test {
+					 public static void main(String[] args) {
+						 ArrayList<Counter> original = new ArrayList<>();
+						 original.add(new Counter(10));
+				 
+						 ArrayList<Counter> cloned = (ArrayList<Counter>) original.clone();
+						 cloned.get(0).count = 5;
+				 
+						 System.out.println(original);
+					 }
+				}
+
+
+
+
+
+
+import java.util.function.Predicate;
+ 
+public class Test {
+     public static void main(String[] args) {
+         String [] arr = {"A", "ab", "bab", "Aa", "bb", "baba", "aba", "Abab"};
+ 
+         Predicate<String> p = s -> s.toUpperCase().substring(0,1).equals("A");
+ 
+         processStringArray(arr, p);
+     }
+ 
+     private static void processStringArray(String [] arr, 
+                                                Predicate<String> predicate) {
+         for(String str : arr) {
+             if(predicate.test(str)) {
+                 System.out.println(str);
+             }
+         }
+     }
+}
+
+
+
+
